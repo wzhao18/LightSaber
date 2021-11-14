@@ -46,7 +46,7 @@ target_compile_options(operatorJITLib PRIVATE -Wall -Wextra -O3 -march=native)
 
 SET(HEADERS
         utils/Utils.h
-        buffers/NumaCircularQueryBuffer.h
+        buffers/NUMACircularQueryBuffer.h
         buffers/CircularQueryBuffer.h
         buffers/QueryBuffer.h
         buffers/PartialWindowResults.h
