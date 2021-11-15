@@ -13,7 +13,7 @@
 #include "utils/QueryOperator.h"
 #include "utils/TupleSchema.h"
 #if defined(HAVE_NUMA)
-#include "buffers/NumaCircularQueryBuffer.h"
+#include "buffers/NUMACircularQueryBuffer.h"
 #include "buffers/PersistentNumaCircularQueryBuffer.h"
 #else
 #include "buffers/CircularQueryBuffer.h"
