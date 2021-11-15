@@ -172,6 +172,6 @@ RUN cd && \
     make install
 
 RUN cd && \
-    git clone https://github.com/lsds/LightSaber.git && \
+    git clone https://github.com/wzhao18/LightSaber && \
     cd LightSaber && \
     ./scripts/build.sh
