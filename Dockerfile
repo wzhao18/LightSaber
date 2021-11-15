@@ -174,4 +174,4 @@ RUN cd && \
 RUN cd && \
     git clone https://github.com/wzhao18/LightSaber && \
     cd LightSaber && \
-    ./scripts/build.sh
+    ./scripts/build.sh 2>/dev/null
