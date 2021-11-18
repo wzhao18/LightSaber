@@ -68,7 +68,7 @@ bool SystemConf::HAS_TWO_SOURCES = false;
 bool SystemConf::SEND_TO_SECOND_WORKER = false;
 const std::string SystemConf::REMOTE_WORKER = SystemConf::WALLABY_ib1; // SystemConf::KEA04_ib0;
 const std::string SystemConf::REMOTE_WORKER_2 = SystemConf::KEA04_ib1;
-const std::string SystemConf::REMOTE_CLIENT = SystemConf::KEA04_ib1;
+const std::string SystemConf::REMOTE_CLIENT = SystemConf::LOCALHOST;
 
 // server: iperf -s
 // client: iperf -c 10.0.0.40
