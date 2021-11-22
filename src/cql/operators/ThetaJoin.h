@@ -7,6 +7,7 @@
 #include "cql/operators/OperatorCode.h"
 #include "cql/operators/codeGeneration/OperatorJit.h"
 #include "cql/predicates/Predicate.h"
+#include "cql/expressions/ColumnReference.h"
 #include "utils/Utils.h"
 #include "utils/WindowDefinition.h"
 
