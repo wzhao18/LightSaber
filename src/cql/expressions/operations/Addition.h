@@ -9,7 +9,7 @@
 
 class Addition : public Expression {
  public:
-  Addition(Expression *a, Expression *b) : m_first(a), m_second(b) {};
+  Addition(Expression *a, Expression *b, const BasicType &basicType = BasicReferenceType) : Expression(basicType), m_first(a), m_second(b) {};
   Expression *getFirstExpression() { return m_first; }
   Expression *getSecondExpression() { return m_second; }
   std::string toSExpr() const override {
