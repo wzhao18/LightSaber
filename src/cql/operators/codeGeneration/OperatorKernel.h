@@ -2908,7 +2908,7 @@ class OperatorKernel : public OperatorCode, public AggregateOperatorCode {
           case AVG:s.append("aggrs._" + std::to_string(i + 1) + " += " + input + ";\n");
             s.append("aggrs._c" + std::to_string(i + 1) + "++;\n");
             break;
-          case CNT:s.append("aggrs._c" + std::to_string(i + 1) + "++;\n");
+          case CNT:s.append("aggrs._" + std::to_string(i + 1) + "++;\n");
             break;
           case MIN:
             s.append("aggrs._" + std::to_string(i + 1) + " = "
