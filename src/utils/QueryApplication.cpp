@@ -193,15 +193,15 @@ void QueryApplication::setup() {
 #endif
     }
   }
-  //m_performanceMonitor = std::make_unique<PerformanceMonitor>(*this);
-  //m_performanceMonitorThread = std::thread(std::ref(*m_performanceMonitor));
-  //m_performanceMonitorThread.detach();
+  m_performanceMonitor = std::make_unique<PerformanceMonitor>(*this);
+  m_performanceMonitorThread = std::thread(std::ref(*m_performanceMonitor));
+  m_performanceMonitorThread.detach();
 
-  //if (SystemConf::getInstance().ADAPTIVE_COMPRESSION_ON) {
-  //  m_compressionMonitor = std::make_unique<CompressionMonitor>(this);
-  //  m_compressionMonitorThread = std::thread(std::ref(*m_compressionMonitor));
-  //  m_compressionMonitorThread.detach();
-  //}
+  if (SystemConf::getInstance().ADAPTIVE_COMPRESSION_ON) {
+    m_compressionMonitor = std::make_unique<CompressionMonitor>(this);
+    m_compressionMonitorThread = std::thread(std::ref(*m_compressionMonitor));
+    m_compressionMonitorThread.detach();
+  }
 
   /* Setup the checkpoint coordinator */
   if (m_checkpointEnabled) {
