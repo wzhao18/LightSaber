@@ -33,6 +33,9 @@ void TaskProcessor::operator()() {
 #else
       while (!m_queue->try_dequeue(task)) {
 #endif
+        if (!m_queue->check_queue_open()) {
+          return;
+        }
         std::this_thread::sleep_for(std::chrono::nanoseconds(1));
       }
 

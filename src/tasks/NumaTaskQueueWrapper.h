@@ -24,6 +24,7 @@ class NumaTaskQueueWrapper {
   const size_t m_queueCapacity;
   std::vector<std::unique_ptr<TaskQueueUnit>> m_queues;
 
+  bool m_isClosed = false;
   const bool m_workSteal = true;
 
  public:
@@ -32,7 +33,11 @@ class NumaTaskQueueWrapper {
 
   bool try_enqueue(std::shared_ptr<Task> const &task);
 
-  bool try_dequeue(std::shared_ptr<Task> &task, int numaNodeId);
+  bool try_dequeue(std::shared_ptr<Task> &task, int numaNodeId=0);
+
+  void close_queue();
+
+  bool check_queue_open();
 
   size_t size_approx() const;
 

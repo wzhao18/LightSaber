@@ -78,6 +78,8 @@ class QueryApplication {
   size_t getTaskQueueCapacity();
   std::vector<std::shared_ptr<Query>> getQueries();
   std::shared_ptr<TaskProcessorPool> getTaskProcessorPool();
+  void closeTaskQueue();
+  void waitForCompletion();
   FileBackedCheckpointCoordinator *getCheckpointCoordinator();
   long getTimestampReference();
   long getLastTimestamp();

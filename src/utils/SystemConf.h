@@ -37,7 +37,7 @@ using ByteBufferPtr = std::vector<char *,
 using TaskQueue = NumaTaskQueueWrapper;
 #else
 #include <tbb/cache_aligned_allocator.h>
-#include "tasks/ConcurrentQueue.h"
+#include "tasks/NumaTaskQueueWrapper.h"
 
 #if defined(HAVE_SHARED)
 #include <boost/interprocess/managed_shared_memory.hpp>
@@ -61,7 +61,7 @@ using ByteBuffer = std::vector<char,
 using ByteBufferPtr = std::vector<char *,
                                   //tbb::cache_aligned_allocator<char *>>;
                                   boost::alignment::aligned_allocator<char*, 512>>;
-using TaskQueue = moodycamel::ConcurrentQueue<std::shared_ptr<Task>>;
+using TaskQueue = NumaTaskQueueWrapper;
 #endif
 
 #define PORT 6667

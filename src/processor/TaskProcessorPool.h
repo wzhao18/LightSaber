@@ -13,7 +13,7 @@
 class TaskProcessorPool {
  private:
   int m_workers;
-  std::weak_ptr<TaskQueue> m_queue;
+  std::shared_ptr<TaskQueue> m_queue;
   std::vector<std::thread> m_threads;
   std::vector<std::unique_ptr<TaskProcessor>> m_processors;
 
@@ -39,6 +39,16 @@ class TaskProcessorPool {
     for (int i = 0; i < m_workers; i++) {
       m_threads.emplace_back(std::thread(*m_processors[i]));
       Utils::bindProcess(m_threads[i], m_orderedCores[i+1]);
+    }
+  }
+
+  void close() {
+    m_queue->close_queue();
+  }
+
+  void wait() {
+    for (int i = 0; i < m_workers; i++) {
+      m_threads[i].join();
     }
   }
 

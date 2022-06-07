@@ -37,6 +37,7 @@ SET(CPP_FILES
         ../../src/result/ResultHandler.cpp
         ../../src/tasks/WindowBatch.cpp
         ../../src/tasks/Task.cpp
+        ../../src/tasks/NumaTaskQueueWrapper.cpp
         ../../src/utils/AttributeType.cpp
         ../../src/utils/Query.cpp
         ../../src/utils/QueryApplication.cpp

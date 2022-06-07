@@ -212,6 +212,14 @@ void QueryApplication::setup() {
   }
 }
 
+void QueryApplication::closeTaskQueue() {
+  m_workerPool->close();
+}
+
+void QueryApplication::waitForCompletion() {
+  m_workerPool->wait();
+}
+
 void QueryApplication::setupRates(std::vector<int> &rates) {
   size_t i = 0;
   for (auto &r: m_rates) {

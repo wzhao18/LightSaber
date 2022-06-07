@@ -22,6 +22,14 @@ m_numaNodes(1),
   }
 }
 
+void NumaTaskQueueWrapper::close_queue() {
+  m_isClosed = true;
+}
+
+bool NumaTaskQueueWrapper::check_queue_open() {
+  return !m_isClosed;
+}
+
 bool NumaTaskQueueWrapper::try_enqueue(std::shared_ptr<Task> const &task) {
   /*std::cout << "[DBG] Adding in TaskQueue: " << task->getQueryId() << " queryid "
   << task->getNumaNodeId() << " numaId " << task->getTaskId() << " taskId " << std::endl;*/
