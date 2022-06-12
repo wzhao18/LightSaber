@@ -171,7 +171,6 @@ RUN cd && \
     make -j$(nproc) && \
     make install
 
-RUN cd && \
-    git clone https://github.com/wzhao18/LightSaber && \
-    cd LightSaber && \
-    ./scripts/build.sh 2>/dev/null
+COPY . .
+
+RUN ./scripts/build.sh 2>/dev/null
