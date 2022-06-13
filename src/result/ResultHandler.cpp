@@ -490,8 +490,7 @@ void ResultHandler::aggregateAndForwardAndFree(WindowBatch *batch) {
       if (!m_results[m_nextToForward].m_slot.compare_exchange_strong(oldVal,
                                                                      4)) {
         m_forwardLock.unlock();
-	// Need to commen this to get the results
-        // return;
+        return;
       }
 
       bool busy = true;
